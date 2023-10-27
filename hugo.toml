@@ -12,7 +12,7 @@
 # 对于开发人员，如果您修改了该主题，请将图片放到 `source/images` 文件夹中，然后
 # 使用 grunt 任务 `build` 同步资产
 
-baseURL = "https://example.org/"
+baseURL = "https://hugoblog-kappa.vercel.app/"
 # 语言配置
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
