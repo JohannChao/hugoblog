@@ -1,0 +1,327 @@
+# Tranquilpeak
+# Version : 0.5.3-BETA
+# Author : Thibaud Leprêtre
+
+# 我强烈建议您使用 CDN 来加快网页加载速度。
+# 有许多免费的 CDN，如 Cloudinary，或者你也可以间接使用
+# 使用 Google Photos 等服务
+
+# 如果您想自己存储图片，请阅读本指南:
+# 对于用户，如果您只使用本主题，请直接将图片放在 `source/assets/images` 文件夹中。
+# 但如果您想添加本地图片，可以直接将图片放在 `source/assets/images` 文件夹中。
+# 对于开发人员，如果您修改了该主题，请将图片放到 `source/images` 文件夹中，然后
+# 使用 grunt 任务 `build` 同步资产
+
+baseURL = "https://example.org/"
+# 语言配置
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+title = "Johann's Blog"
+# 设置主题
+theme = "tranquilpeak"
+# disqusShortname = "hugo-tranquilpeak-theme"
+# googleAnalytics = "UA-123-45"
+# 首页每页显示的文章数
+paginate = 7
+# 如果基本网址不是网站根目录，则必须设置 canonifyURLs = "true" （规范化网址）
+canonifyurls = true 
+
+[permalinks]
+  posts = "/:year/:month/:slug/"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  archive = "archives"
+
+# ------
+# Markup
+# ------
+[markup]
+  # 设置 startLevel = 1 以支持 # title (<h1>title</h1>)，否则内容表为空白/空
+  [markup.tableOfContents] 
+    endLevel = 3
+    ordered = false
+    startLevel = 1
+
+# ------
+# Author
+# ------
+[author]
+  name = "Johann"
+  # 您的简历（支持 Markdown 和 HTML）
+  bio = "我的简历没什么东西 **Nothing**"
+  # 工作
+  job = "开发工程师"
+  location = "中国"
+  # 您的 Gravatar 电子邮件。重写博客中所有地方的 `author.picture
+  # gravatarEmail = "yhzhaohy@hotmail.com"
+  # 您的个人照片
+  # 如果填写了`author.gravatarEmail`，则会被您的 gravatar 图像覆盖
+  picture = "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
+  # 您的 Twitter 用户名（不带@）。 E.g : thibaudlepretre
+  # twitter = "thibaudlepretre"
+  # 您的 Google+ 个人资料 ID。 E.g : +ThibaudLepretre or 114625208755123718311
+  # googlePlus = "+ThibaudLepretre"
+
+# ------------
+# Sidebar menu
+# ------------
+# 侧边栏功能强大且易于配置。您可以根据需要添加链接组和链接
+# weight: 菜单按weight排序
+# identifier: 条目的唯一标识符
+# name: 要显示的标题
+# pre: 图标显示在名称的左侧
+# url: 菜单入口地址
+[[menu.main]]
+  weight = 1
+  identifier = "home"
+  name = "Home"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-home\" aria-hidden=\"true\"></i>"
+  url = "/"
+[[menu.main]]
+  weight = 2
+  identifier = "categories"
+  name = "Categories"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-bookmark\" aria-hidden=\"true\"></i>"
+  url = "/categories"
+[[menu.main]]
+  weight = 3
+  identifier = "tags"
+  name = "Tags"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-tags\" aria-hidden=\"true\"></i>"
+  url = "/tags"
+[[menu.main]]
+  weight = 4
+  identifier = "archives"
+  name = "Archives"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-archive\" aria-hidden=\"true\"></i>"
+  url = "/archives"
+# [[menu.main]]
+  # weight = 5
+  # identifier = "about"
+  # name = "About"
+  # pre = "<i class=\"sidebar-button-icon fas fa-lg fa-question\" aria-hidden=\"true\"></i>"
+  # url = "/#about"
+
+# [[menu.links]]
+#   weight = 1
+#   identifier = "github"
+#   name = "GitHub"
+#   pre = "<i class=\"sidebar-button-icon fab fa-lg fa-github\" aria-hidden=\"true\"></i>"
+#   url = "https://github.com/kakawait"
+# [[menu.links]]
+#   weight = 2
+#   identifier = "stackoverflow"
+#   name = "Stack Overflow"
+#   pre = "<i class=\"sidebar-button-icon fab fa-lg fa-stack-overflow\" aria-hidden=\"true\"></i>"
+#   url = "https://stackoverflow.com/users/636472/kakawait"
+
+[[menu.misc]]
+  weight = 1
+  identifier = "rss"
+  name = "RSS"
+  pre = "<i class=\"sidebar-button-icon fas fa-lg fa-rss\" aria-hidden=\"true\"></i>"
+  url = "/index.xml"
+
+# -------------
+# Customization
+# -------------
+[params]
+  # -----------
+  # Description
+  # -----------
+  description = "I'm Johann. It's my blog."
+
+  # ------------------
+  # Syntax highlighter语法高亮显示
+  # ------------------
+  # 在 "highlight.js" 和 "prism.js"之间定义要使用的语法突出显示
+  # 您可以通过注释来禁用语法高亮功能，如果未设置语法突出显示则禁用
+  syntaxHighlighter = "highlight.js"
+
+  # -----------
+  # Date format
+  # -----------
+  # 自定义日期格式，用于显示博文日期、类别和其他内容
+  # 你必须使用 Go Time 软件包使用的日期格式 https://golang.org/pkg/time/
+  # 如果 i18n 文件夹中存在翻译，则翻译月份（不适用于 "jan"、"feb "等短月）
+  # 默认格式: January 2, 2006
+  #  dateFormat = "2 January 2006"
+
+  # ---------------------------
+  # Posts related configuration
+  # ---------------------------
+  # 全局关键字配置。以下关键字将添加到每个页面
+  keywords = ["johann's blog", "yhzhaohy"]
+
+  # 隐藏所有文章页面的边栏，让文章占满整个页面，提高阅读效率，并欣赏宽幅图片和封面图片。(true：启用，false：禁用）
+  clearReading = true
+
+  # 定义类别将在父类之间创建层次结构： categories = ["foo", "bar"]` 将把 "bar "视为 "foo "的子类别。
+  # 如果为 false，则会将类别平铺
+  hierarchicalCategories = true
+
+  # 在分页左侧显示 "下一页"，在右侧显示 "上一页"。
+  # 如果将此值设为 `true`，这些位置就会互换。
+  #  swapPaginator = true
+
+  # ---------------------
+  # Sidebar configuration
+  # ---------------------
+  # Customization
+  # 定义侧边栏的行为
+  # 1: 在超大屏幕上显示超大侧边栏，在大屏幕上显示大侧边栏，在中屏幕上显示中侧边栏，在小屏幕上显示标题栏，在超大屏幕上滑动显示超大侧边栏，点击打开按钮时在所有低屏幕上显示大侧边栏（默认值）
+  # 2: 在超大和大屏幕上显示大侧栏，在中屏幕上显示中侧栏，在小屏幕上显示标题栏，点击打开按钮时，大侧栏会被滑动
+  # 3: 在大屏幕和中屏幕上显示中型侧边栏，在小屏幕上显示标题栏，点击打开按钮时，中型侧边栏会被滑动
+  # 4: 在所有屏幕上显示标题栏，在超大屏幕上滑动超大侧边栏，在所有低屏幕上滑动大侧边栏
+  # 5: 在所有屏幕上显示标题栏，在大屏幕上轻扫大侧栏
+  # 6: 在所有屏幕上显示标题栏，轻扫中侧边栏
+  sidebarBehavior = 2
+
+  # 自定义侧边栏中作者头像的链接
+  #  [params.sidebar.profile]
+  #    url = "/#about"
+
+  # -------------------
+  # Media configuration
+  # -------------------
+  # 您的博客封面图片。我强烈建议你使用 CDN 来加快页面加载速度。
+  # 有很多免费的 CDN，比如 Cloudinary，或者你也可以间接使用 Google Photos 等服务。
+  # 当前图片在 AWS S3 上，由 AWS CloudFront 交付。
+  # Otherwise put your image, for example `cover.jpg` in folder `static/images/`, and use relative url : `images/cover.jpg`
+  coverImage = "images/cover.jpg"
+
+  # 在包含照片变量的文章末尾显示图片库（false：禁用，true：启用）
+  imageGallery = true
+
+  # 在索引页面显示每个帖子的缩略图（false：禁用，true：启用）
+  thumbnailImage = true
+  # 在索引页面标题右侧显示缩略图 (`right`, `left` or `bottom`)
+  # 如果您有旧文章，请将此值设为 `right`，以保留旧风格，并在文章上定义 `thumbnailImagePosition` 以覆盖此设置
+  thumbnailImagePosition = "bottom"
+  # 如果没有缩略图作为缩略图，则自动从帖子的图库中选择封面图片或第一张照片作为缩略图
+  # 如果您有使用封面图片或第一张照片作为缩略图的旧文章，请将此值设为 `true`。 在帖子上将 "autoThumbnailImage "设为 "false"，以覆盖此设置
+  autoThumbnailImage = true
+
+  # 您的收藏夹图标路径，default is "/favicon.png"
+  favicon = "/favicon.png"
+
+  # ------------------
+  # External resources
+  # ------------------
+  # 如果需要在博客中添加一些 javascript 或 css 文件，而不需要分叉或覆盖主题本身，可以使用以下配置：
+  
+  # 自定义 CSS。将自定义 CSS 文件放在此处。它们将在主题 CSS 之后加载； 
+  # 它们必须从静态根目录引用。 Example
+  #  [[params.customCSS]]
+  #    href = "css/mystyle.css"
+
+  # 自定义 JS。将自定义 JS 文件放在此处。它们将在主题 JS 之后加载；
+  # 必须从静态根目录引用。 Example
+  #  [[params.customJS]]
+  #     src = "js/myscript.js"
+
+
+  # ---------------
+  # Sharing options
+  # ---------------
+  # 注释和取消注释以启用或禁用共享选项
+  # 如果你想添加共享选项，请阅读用户文档：
+  # Tranquilpeak configuration > Theme configuration > sharing-options
+  # [[params.sharingOptions]]
+    # name = "Facebook"
+    # icon = "fab fa-facebook-square"
+    # url = "https://www.facebook.com/sharer/sharer.php?u=%s"
+
+  # [[params.sharingOptions]]
+    # name = "Twitter"
+    # icon = "fab fa-twitter"
+    # url = "https://twitter.com/intent/tweet?text=%s"
+
+ # [[params.sharingOptions]]
+   # name = "Whatsapp"
+   # icon = "fab fa-whatsapp"
+   # url = "https://wa.me/?text=%s"
+
+  # [[params.sharingOptions]]
+    # name = "Linkedin"
+    # icon = "fab fa-linkedin"
+    # url = "https://www.linkedin.com/sharing/share-offsite/?url=%s"
+
+ # [[params.sharingOptions]]
+   # name = "Reddit"
+   # icon = "fab fa-reddit"
+   # url = "https://www.reddit.com/submit?url=%s"
+
+ # [[params.sharingOptions]]
+   # name = "Pocket"
+   # icon = "fab fa-get-pocket"
+   # url = "https://getpocket.com/edit?url=%s"
+
+ # [[params.sharingOptions]]
+   # name = "Hacker News"
+   # icon = "fab fa-hacker-news"
+   # url = "https://news.ycombinator.com/submitlink?u=%s"
+
+  # -------------------
+  # Integrated services
+  # -------------------
+  # Gravatar
+  #  >> See Author section
+  #    [author]
+  #      gravatarEmail =
+  # Google Analytics
+  #  >> See googleAnalytics
+  #    googleAnalytics =
+  # Your Facebook user ids used to connect your blog with your facebook user accounts (Facebook Insights). Separate ids with comma. e.g : 9830047,1003342
+  #  fbAdminIds =
+  # Your Facebook app id used to connect your blog with your facebook app account (Facebook Insights). E.g : 9841307
+  #  fbAppId =
+
+  # --------------
+  # Comment system
+  # --------------
+  # [params.comment]
+    # [params.comment.disqus]
+      # enable = true
+      # shortname = "hugo-tranquilpeak-theme"
+    # [params.comment.gitalk]
+      # enable = false
+      # clientId =
+      # clientSecret =
+      # owner =
+      # repo =
+      # See all options: https://github.com/gitalk/gitalk#options
+      # [params.comment.gitalk.options]
+        # language = "en"
+        # perPage = 10
+        # distractionFreeMode = false
+        # enableHotKey = true
+        # pagerDirection = "first"
+
+  # --------------------
+  # Header configuration
+  # --------------------
+  # 标题右侧的链接可自定义
+  # 您可以在页眉右侧添加一个链接（图标），而不是作者的头像或图片。
+  # 默认情况下，显示的是作者的头像或图片。
+  
+  # 标题右侧链接为 about 页面
+  #  class = ""
+  #  icon = ""
+  #  url = "/#about"
+
+  #  class: st-search-show-outputs
+  #  icon: search
+  #  url: /#search 
+  [params.header.rightLink]
+
+
+
+  # --------------------
+  # Footer configuration
+  # --------------------
+  # Customize copyright value "© 2017 <CUSTOMIZATION>. All Rights Reserved"
+  #[params.footer]
+    #copyright = "<a href=\"https://github.com/kakawait\">kakawait</a>"
