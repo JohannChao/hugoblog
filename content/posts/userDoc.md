@@ -13,7 +13,6 @@ showActions: true
 showSocial: true
 ---
 
-{{< toc >}}
 
 # Hugo Quick start
 
